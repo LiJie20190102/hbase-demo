@@ -112,7 +112,6 @@ public class RowCounterDemo {
 			HTableDescriptor hTableDescriptor = HTableDescriptor.parseFrom(htd.toByteArray());
 
 			// 协处理器可以选择
-			hTableDescriptor.setReadOnly(false);
 			hTableDescriptor.addCoprocessor(aggregateImplementation);
 			admin.modifyTable(tableName, hTableDescriptor);
 			admin.enableTable(tableName);
